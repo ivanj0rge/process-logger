@@ -26,25 +26,24 @@ This script:
 ## How to run
 
 Make the script executable:
-```bash
-chmod +x process_logger.sh
+`chmod +x process_logger.sh`
 
 Run it normally:
-./process_logger.sh
+`./process_logger.sh`
 
 Run it in the background:  
-nohup ./process_logger.sh &
+`nohup ./process_logger.sh &`
 
 Monitor logs:
-tail -f log.txt
+`tail -f log.txt`
 
 ## How to stop it
 
 Find the process:
-ps aux | grep process_logger
-
-Kill it using its PID:
-kill <PID>
+`ps aux | grep process_logger`
+ 
+ Kill it using its PID:
+`kill <PID>`
 
 ## Skills used
 
