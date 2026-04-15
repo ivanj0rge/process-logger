@@ -1,0 +1,11 @@
+name: First Pipeline
+
+on:
+  push:
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show message
+        run: echo "My first DevOps pipeline is running"
