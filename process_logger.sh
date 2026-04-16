@@ -8,9 +8,11 @@ log_file="log.txt"
 echo $start
 echo $message
 
-while true
+for i in {1...9}
 do
 	date >> $log_file
 	sleep $refresh
 done
+
+echo "Finished logging"
 
