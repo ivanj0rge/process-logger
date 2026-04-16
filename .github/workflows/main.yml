@@ -1,11 +1,18 @@
-name: First Pipeline
+name: Run Process Logger
 
 on:
   push:
 
 jobs:
-  hello:
+  run-script:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Show message
-        run: echo "My first DevOps pipeline is running"
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Make script executable
+        run: chmod +x process_logger.sh
+
+      - name: Run script
+        run: ./process_logger.sh
