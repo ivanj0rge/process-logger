@@ -11,6 +11,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Force Failure
+        run: exit 1
+
       - name: Make script executable
         run: chmod +x process_logger.sh
 
