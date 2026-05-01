@@ -14,7 +14,7 @@ jobs:
         run: echo "Pipeline executed successfully" > log.txt
 
       - name: Upload log
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: logs
           path: log.txt
