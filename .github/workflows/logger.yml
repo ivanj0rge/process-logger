@@ -13,15 +13,15 @@ jobs:
       - name: Create log file
         run: echo "Pipeline executed successfully" > log.txt
 
-      - name: Upload log
-        uses: actions/upload-artifact@v4
-        with:
-          name: logs
-          path: log.txt
-
       - name: Validate log file
         run: |
           if [ ! -s log.txt ]; then
             echo "log.txt is empty or missing!"
             exit 1
           fi
+
+      - name: Upload log
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: log.txt
