@@ -18,3 +18,10 @@ jobs:
         with:
           name: logs
           path: log.txt
+
+      - name: Validate log file
+        run: |
+          if [ ! -s log.txt ]; then
+            echo "log.txt is empty or missing!"
+            exit 1
+          fi
