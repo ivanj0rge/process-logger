@@ -20,6 +20,11 @@ jobs:
             exit 1
           fi
 
+          if ! grep -q "Pipeline executed successfully" log.txt; then
+            echo "log.txt does not contain the expected success message!"
+            exit 1
+           fi 
+
       - name: Upload log
         uses: actions/upload-artifact@v4
         with:
