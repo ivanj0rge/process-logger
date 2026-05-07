@@ -13,25 +13,8 @@ jobs:
       - name: Create log file
         run: echo "Pipeline executed successfully" > log.txt
 
-      - name: Validate check if file exists
-        run: |
-          if [ ! -f log.txt ]; then
-            echo "log.txt does not exists!"
-            exit 1
-          fi
-
-      - name: Check file not empty
-        run: |
-          if [ ! -s log.txt ]; then
-            echo "log.txt is empty!"
-          fi
-
-      - name: Check expected content
-        run: |
-          if ! grep -q "Pipeline executed successfully" log.txt; then
-            echo "Expected message not found!"
-            exit 1
-           fi 
+      - name: Run validation script
+        run: ./validate.sh
 
       - name: Upload log
         uses: actions/upload-artifact@v4
