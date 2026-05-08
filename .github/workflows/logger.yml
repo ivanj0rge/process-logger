@@ -6,13 +6,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      EXPECTED_MESSAGE: "Pipeline executed successfully"
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Create log file
         run: echo "Pipeline executed successfully" > log.txt
-
+        run: echo "Expected message: $EXPECTED_MESSAGE"
+        
       - name: Make validation script executable
         run: chmod +x validate.sh
 

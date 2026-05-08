@@ -10,7 +10,7 @@ if [ ! -s log.txt ]; then
   exit 1
 fi
 
-if ! grep -q "Pipeline executed successfully" log.txt; then
+if ! grep -q "$EXPECTED_MESSAGE" log.txt; then
   echo "Expected message not found!"
   exit 1
 fi
