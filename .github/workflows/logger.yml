@@ -15,7 +15,6 @@ jobs:
 
       - name: Create log file
         run: echo "Pipeline executed successfully" > log.txt
-        run: echo "Expected message: $EXPECTED_MESSAGE"
         
       - name: Make validation script executable
         run: chmod +x validate.sh
