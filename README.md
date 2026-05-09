@@ -1,62 +1,163 @@
 # DevOps Process Logger
 
-A simple Bash-based logging tool.
+A Bash-based logging project with a CI validation pipeline using GitHub Actions.
 
-## What it does
+---
 
-This script:
+# 📌 Project Overview
 
-- Prints startup messages
-- Runs continuously in a loop
-- Writes the current date and time to a log file
-- Waits a configurable number of seconds between log entries
+This project demonstrates:
 
-## Script features
+- Bash scripting
+- Linux process management
+- CI pipeline automation
+- Artifact generation
+- Validation and fail-fast logic
+- GitHub Actions workflows
 
-- Configurable refresh interval using variables
-- Configurable log file name
-- Simple Bash automation structure
-- Suitable for running in the background with `nohup`
+The repository evolved from a simple logging script into a small DevOps-oriented CI project.
 
-## Project files
+---
 
-- `process_logger.sh` → main Bash script
-- `log.txt` → generated log output file
+# ⚙️ What the Logger Does
 
-## How to run
+The logger script:
 
-Make the script executable:
-`chmod +x process_logger.sh`
+- prints startup messages
+- writes timestamps to a log file
+- runs continuously in a loop
+- waits a configurable interval between entries
 
-Run it normally:
-`./process_logger.sh`
+Example output:
 
-Run it in the background:  
-`nohup ./process_logger.sh &`
+```text
+2026-05-09 14:32:01
+2026-05-09 14:32:06
+2026-05-09 14:32:11
+```
+
+---
+
+# 🧱 Project Structure
+
+```text
+process-logger/
+├── .github/
+│   └── workflows/
+│       └── logger.yml
+├── validate.sh
+├── process_logger.sh
+├── log.txt
+└── README.md
+```
+
+---
+
+# 🚀 CI Pipeline Features
+
+The GitHub Actions pipeline:
+
+1. Checks out repository code
+2. Creates a log file
+3. Executes validation script
+4. Validates:
+   - file existence
+   - file not empty
+   - expected content
+5. Uploads validated artifacts
+
+---
+
+# ✅ Validation Logic
+
+The pipeline uses fail-fast validation.
+
+If:
+- the log file is missing
+- the file is empty
+- the expected message is incorrect
+
+then:
+
+```text
+The pipeline fails immediately
+```
+
+This prevents invalid outputs from being stored as artifacts.
+
+---
+
+# 📦 Artifact Generation
+
+Validated logs are uploaded as GitHub Actions artifacts for later inspection and debugging.
+
+---
+
+# 🖥️ How to Run the Logger
+
+Make executable:
+
+```bash
+chmod +x process_logger.sh
+```
+
+Run normally:
+
+```bash
+./process_logger.sh
+```
+
+Run in background:
+
+```bash
+nohup ./process_logger.sh &
+```
 
 Monitor logs:
-`tail -f log.txt`
 
-## How to stop it
+```bash
+tail -f log.txt
+```
 
-Find the process:
-`ps aux | grep process_logger`
- 
- Kill it using its PID:
-`kill <PID>`
+---
 
-## Skills used
+# 🛑 How to Stop It
 
-- Bash scripting 
-- Variable in Bash 
-- Linux processes  
-- Logging
-- Background processes
-- Processes monitoring and control 
+Find process:
 
-## Future improvements
+```bash
+ps aux | grep process_logger
+```
 
-- Accept command-line arguments
-- Allow custom log file names at runtime
-- Add stop/start options
-- Improve log formatting 
+Kill process:
+
+```bash
+kill <PID>
+```
+
+---
+
+# 🧠 Skills Demonstrated
+
+- Bash scripting
+- Linux permissions
+- Process management
+- CI/CD fundamentals
+- GitHub Actions
+- Validation pipelines
+- Fail-fast logic
+- Artifact handling
+- Environment variables
+
+---
+
+# 🔮 Future Improvements
+
+Planned upgrades:
+
+- command-line arguments
+- dynamic log file names
+- Docker containerization
+- automated testing
+- multi-stage CI pipelines
+- cloud deployment experiments
