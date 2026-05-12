@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Show system info
+        uses: uname -a
+
       - name: Create log file
         run: echo "Pipeline executed successfully" > log.txt
         
