@@ -1,0 +1,26 @@
+name: Basic CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  basic-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Confirm runner environment
+        run: |
+          echo "Running on Github Actions"
+          uname -a
+          pwd
+          ls -la
+
+       - name: Simple success check
+         run: echo "CI workflow completed successfully"
