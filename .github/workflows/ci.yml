@@ -17,10 +17,10 @@ jobs:
 
       - name: Confirm runner environment
         run: |
-          echo "Running on Github Actions"
+          echo "Running on GitHub Actions"
           uname -a
           pwd
           ls -la
 
-       - name: Simple success check
-         run: echo "CI workflow completed successfully"
+      - name: Simple success check
+        run: echo "CI workflow completed successfully"
