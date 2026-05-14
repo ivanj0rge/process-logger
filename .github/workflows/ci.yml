@@ -24,3 +24,6 @@ jobs:
 
       - name: Simple success check
         run: echo "CI workflow completed successfully"
+
+      - name: Show current date
+        run: date
